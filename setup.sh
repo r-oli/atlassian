@@ -1,15 +1,17 @@
 #!/bin/bash
 
-yum -y update
+echo "yum -y update"
 
-yum install -y yum-utils device-mapper-persistent-data lvm2
+echo "yum install -y yum-utils"
 
-yum install -y docker
+echo "yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo"
 
-systemctl start docker
+echo "yum install -y yum install docker-ce docker-ce-cli containerd.io"
 
-systemctl enable docker
+echo "systemctl start docker"
 
-systemctl status docker
+echo "systemctl enable docker"
+
+echo "systemctl status docker"
 
 echo "Done"
