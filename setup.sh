@@ -14,13 +14,8 @@ systemctl start postgresql
 systemctl enable postgresql
 
 echo Please input user postgres password!
-read varpasswd
-passwd postgre
-
-#switch to postgres prompt
-su --shell /bin/bash postgres
-
-psql -d template1 -c "ALTER USER postgres WITH PASSWORD '$varpasswd';"
+#read varpasswd
+passwd postgres
 
 
 
