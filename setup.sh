@@ -17,6 +17,7 @@ echo Please input user postgres password!
 #read varpasswd
 passwd postgres
 
+source jirasoftware.sh
 
 
 
@@ -24,26 +25,3 @@ passwd postgres
 
 
 
-
-
-yum install -y yum-utils
-
-yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
-
-yum install -y yum install docker-ce docker-ce-cli containerd.io
-
-systemctl start docker
-
-systemctl enable docker
-
-systemctl status docker
-
-docker volume create --name bitbucketVolume
-
-docker run -v bitbucketVolume:/var/atlassian/application-data/bitbucket --name="bitbucket" -d -p 7990:7990 -p 7999:7999 atlassian/bitbucket-server
-
-docker run -v /data/bitbucket:/var/atlassian/application-data/bitbucket --name="bitbucket" -d -p 7990:7990 -p 7999:7999 atlassian/bitbucket-server
-
-docker run --name atlassian-postgres -e POSTGRES_PASSWORD=mysecretpassword -d postgres
-
-echo "Done"
